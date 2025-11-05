@@ -96,9 +96,7 @@ jobs:
           run: |
                git config user.name "rahmanhanan7"
                git config user.email "rahmanhanan7@gmail.com"
-               # Ensure we're on main (create/reset if needed) before committing
-               git checkout -B main
                git add kubernetes/productcatalog/deploy.yaml
                git commit -m "[CI]: Update product-catalog image tag to ${{github.run_id}}" || echo "no changes to commit"
                # Use force-with-lease to be safer than --force
-               git push origin main --force-with-lease
+               git push origin HEAD:main --force-with-lease
