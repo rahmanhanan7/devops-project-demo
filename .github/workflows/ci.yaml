@@ -94,6 +94,7 @@ jobs:
           run: |
                git config --global user.name "rahmanhanan7"
                git config --global user.email "rahmanhanan7@gmail.com"
+               git checkout -B ci-check
                git add kubernetes/productcatalog/deploy.yaml
                git commit -m "[CI]: Update product-catalog image tag to ${{github.run_id}}"
-               git push
+               git push origin ci-check
